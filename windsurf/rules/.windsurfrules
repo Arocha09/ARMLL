@@ -1,0 +1,42 @@
+---
+description: Enforces Python coding standards and best practices for LLM-generated code.
+globs: "*.py"
+alwaysApply: true
+---
+
+<rule-set title="Python Coding Standards">
+  <rule id="type-annotations">
+    <description>All functions must include type annotations for arguments and return values.</description>
+    <pattern>def\s+\w+\s*\(.*?\)\s*->\s*.*?:</pattern>
+    <context>Ensures code readability and maintainability by explicitly defining data types.</context>
+  </rule>
+
+  <rule id="docstrings">
+    <description>Functions and classes must have clear, Google-style docstrings.</description>
+    <pattern>def\s+\w+\s*\(.*?\):\s*\n\s*"""</pattern>
+    <context>Provides comprehensive documentation for better understanding and usage.</context>
+  </rule>
+
+  <rule id="variable-naming-convention">
+    <description>Variables should follow snake_case naming conventions.</description>
+    <pattern>[A-Z]</pattern>
+    <context>Maintains consistency in variable naming throughout the codebase.</context>
+  </rule>
+
+  <rule id="error-handling">
+    <description>Key logic should include appropriate error handling mechanisms (e.g., try-except blocks).</description>
+    <pattern>#\s*TODO:\s*Add\s*error\s*handling</pattern>
+    <context>Ensures robustness and graceful handling of unexpected situations.</context>
+  </rule>
+
+  <rule id="code-formatting">
+    <description>Code should be formatted using Black or Ruff for consistency.</description>
+    <context>Improves code readability and reduces formatting-related conflicts.</context>
+  </rule>
+</rule-set>
+
+<guidelines>
+  <guideline>When generating code, prioritize clarity and simplicity over overly complex solutions.</guideline>
+  <guideline>Consider potential security implications and suggest secure coding practices.</guideline>
+  <guideline>Provide usage examples for core functionalities or complex implementations.</guideline>
+</guidelines>
